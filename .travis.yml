@@ -8,6 +8,7 @@ android:
   licenses:
     - '.+'
 before_install:
- - chmod +x gradlew
+  - chmod +x gradlew
 script:
   - ./gradlew build connectedCheck
+  - cat library/build/outputs/lint-results.xml

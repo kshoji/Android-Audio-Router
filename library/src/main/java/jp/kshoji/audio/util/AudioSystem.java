@@ -5,6 +5,8 @@ import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.lang.reflect.Method;
 
 /**
@@ -20,11 +22,13 @@ import java.lang.reflect.Method;
 @SuppressWarnings("JavadocReference")
 public final class AudioSystem {
 
+    @Retention(RetentionPolicy.SOURCE)
     @IntDef({ DEVICE_STATE_UNAVAILABLE, DEVICE_STATE_AVAILABLE})
     public @interface DeviceState{}
     public static final int DEVICE_STATE_UNAVAILABLE = 0;
     public static final int DEVICE_STATE_AVAILABLE = 1;
 
+    @Retention(RetentionPolicy.SOURCE)
     @IntDef({
             DEVICE_OUT_EARPIECE, DEVICE_OUT_SPEAKER, DEVICE_OUT_WIRED_HEADSET, DEVICE_OUT_WIRED_HEADPHONE,
             DEVICE_OUT_BLUETOOTH_SCO, DEVICE_OUT_BLUETOOTH_SCO_HEADSET, DEVICE_OUT_BLUETOOTH_SCO_CARKIT,
@@ -51,6 +55,7 @@ public final class AudioSystem {
     public static final int DEVICE_OUT_REMOTE_SUBMIX = 0x8000;
 
     // device categories config for setForceUse, must match AudioSystem::forced_config
+    @Retention(RetentionPolicy.SOURCE)
     @IntDef({
             FORCE_NONE, FORCE_SPEAKER, FORCE_HEADPHONES, FORCE_BT_SCO, FORCE_BT_A2DP,
             FORCE_WIRED_ACCESSORY, FORCE_BT_CAR_DOCK, FORCE_BT_DESK_DOCK, FORCE_ANALOG_DOCK,
@@ -71,6 +76,7 @@ public final class AudioSystem {
     public static final int FORCE_DEFAULT = FORCE_NONE;
 
     // usage for setForceUse, must match AudioSystem::force_use
+    @Retention(RetentionPolicy.SOURCE)
     @IntDef({
             FOR_COMMUNICATION, FOR_MEDIA, FOR_RECORD, FOR_DOCK
     })
